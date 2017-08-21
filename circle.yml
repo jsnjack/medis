@@ -1,0 +1,14 @@
+dependencies:
+  pre:
+    - sudo apt-get install rpm
+    - gem install package_cloud
+
+deployment:
+  production:
+    branch: copr
+    commands:
+      - npm install
+      - npm run build
+      - npm run rpm_build
+      - npm run rpm_pack
+      - package_cloud push jsnjack/medis/fedora/26 $(find dist/installers -name "*.rpm") --skip-errors
