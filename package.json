@@ -13,7 +13,10 @@
     "electron": "electron .",
     "lint": "xo client/**/*.{js,jsx}",
     "pack": "NODE_ENV=production npm run build -- -p --config webpack.production.config.js && node bin/pack.js",
-    "release": "NODE_ENV=production ./bin/release"
+    "release": "NODE_ENV=production ./bin/release",
+    "rpm_build": "electron-packager . app --platform linux --arch x64 --out dist/ --overwrite",
+    "rpm_pack": "electron-installer-redhat --src dist/app-linux-x64/ --dest dist/installers/ --arch x86_64 --config rpm.json",
+    "rpm": "npm run build && npm run rpm_build && npm run rpm_pack"
   },
   "xo": {
     "extends": "xo-react/space",
@@ -72,6 +75,7 @@
     "css-loader": "^0.19.0",
     "cz-conventional-changelog": "^1.1.5",
     "electron": "1.4.15",
+    "electron-installer-redhat": "^0.5.0",
     "electron-osx-sign": "^0.4.4",
     "electron-packager": "^8.6.0",
     "eslint-config-xo": "^0.18.1",
