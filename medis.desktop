@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Medis
+Comment=GUI for Redis
+GenericName=Medis
+Exec=medis %U
+Icon=medis
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
